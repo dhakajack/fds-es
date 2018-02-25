@@ -16,89 +16,107 @@ Quelques astuces:
 
 Commandes ( parmi les 10 possibles ) :
 
-est 
-ouest 
-manger 
-est   
-ouvrir   
-nord   
-ouvrir   
-manger   
-pousser   
-sud   
-pousser   
-est   
-pousser   
-ouest   
-sud   
-ouvrir   
-manger   
-manger   
-manger   
-nord   
-ouvrir   
-nord   
-ouvrir   
-ouvrir   
-manger   
-sud   
-ouest   
-déverrouiller   
-ouvrir   
-ouest   
-déverrouiller   
-ouvrir   
-nord   
-nord   
-déverrouiller   
-ouvrir   
-nord   
-parler   
-parler   
-parler   
-parler   
-parler   
-manger   
-sud   
-sud   
-sud   
-est   
-pousser   
-est   
-pousser   
-ouest   
-déverrouiller   
-ouvrir   
-sud   
-ouvrir   
+* Notez: Ce jeu ne fonctionne pas avec l'interpréteur Lectrote. En tant que je sache, d'autres interpréteurs fonctionnent bien. Si vous rencontrez des problèmes, une version en ligne este disponible.
+
+=== Solución ===
+
+Voici la solution minimale pour Faute de Servo.
+
+Quelques astuces:
+
+* Vous ne pouvez pas tapez des commandes. Le clavier n'est pas utilisé dans ce jeu ; jetez-le par la fenêtre.
+* Avant de le lancer, regardez sous la fenêtre pour vous assurer que personne n'est pas là.
+* Pendant le jeu, des cases colorées apparaîtront.
+* Chaque couleur correspond à une commande.
+* C'est à vous d'expérimenter pour élucider la signification de chaque couleur.
+* Ne vous en faites pas -- vous ne pouvez pas mettre le jeu dans un état non gangable.
+* Même si la position d'une case changera pendant le jeu, c'est sa couleur qui compte.
+
+Commandes ( dont il n'y a que dix... ) :
+
+este 
+oeste 
+come 
+este   
+abre   
+norte   
+abre   
+come   
+empuja   
+sur   
+empuja   
+este   
+empuja   
+oeste   
+sur   
+abre   
+come   
+come   
+come   
+norte   
+abre   
+norte   
+abre   
+abre   
+come   
+sur   
+oeste   
+ingrese el código   
+abre   
+oeste   
+ingrese el código   
+abre   
+norte   
+norte   
+ingrese el código   
+abre   
+norte   
+habla   
+habla   
+habla   
+habla   
+habla   
+come   
+sur   
+sur   
+sur   
+este   
+empuja   
+este   
+empuja   
+oeste   
+ingrese el código   
+abre   
+sur   
+abre   
 réparer   
-nord   
-pousser   
-est   
-pousser   
-ouest   
-ouest   
-nord   
-ouvrir   
+norte   
+empuja   
+este   
+empuja   
+oeste   
+oeste   
+norte   
+abre   
 réparer   
-sud   
-est   
-pousser   
-est   
-pousser   
-ouest   
-sud   
-nord   
-pousser   
-est   
-pousser   
-ouest   
-ouest   
-nord   
-nord   
-nord   
-pousser   
-parler   
-parler   
-parler    
-parler 
+sur   
+este   
+empuja   
+este   
+empuja   
+oeste   
+sur   
+norte   
+empuja   
+este   
+empuja   
+oeste   
+oeste   
+norte   
+norte   
+norte   
+empuja   
+habla   
+habla   
+habla    
+habla 
