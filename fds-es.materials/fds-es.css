@@ -62,42 +62,42 @@ a {
 	top: 570px;
 }
 
-a.noir {
+a.negro {
 	color:black;
 	background:black;
 }
 
-a.brun {
+a.marron {
 	color:brown;
 	background:brown;
 }
 
-a.rouge {
+a.rojo {
 	color:red;
 	background:red;
 }
 
-a.orange {
+a.anaranjado {
 	color:orange;
 	background:orange;
 }
 
-a.jaune {
+a.amarillo {
 	color:yellow;
 	background:yellow;
 }
 
-a.vert {
+a.verde {
 	color:green;
 	background:green;
 }
 
-a.bleu {
+a.azul {
 	color:blue;
 	background:blue;
 }
 
-a.violet {
+a.violeta {
 	color:violet;
 	background:violet;
 }
@@ -107,7 +107,7 @@ a.gris {
 	background:grey;
 }
 
-a.blanc {
+a.blanco {
 	color:white;
 	background:white;
 }

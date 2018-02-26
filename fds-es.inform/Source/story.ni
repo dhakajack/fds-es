@@ -93,7 +93,7 @@ To say exitList:
 						say "\u2192 ".
 						
 To listHiddenExits:
-	place an inline element called "hidden" reading "Sorties éventuelles: [hiddenExitList]. "
+	place an inline element called "hidden" reading "Sorties éventuelles: hacia el [hiddenExitList]. "
 	
 To say hiddenExitList:
 	let L be {west, north, south, east};
@@ -104,72 +104,70 @@ To say hiddenExitList:
 			if D is nothing or D is open or (D is simpleOpenable and the consciousness of the player is greater than 0) or (D is buttoned and the consciousness of the player is greater than one) or (D is locked and the consciousness of the player is greater than two):
 				if the way is:
 					-- west:
-						add "à l'ouest" to LL;
+						add "oeste" to LL;
 					-- north:
-						add "au nord" to LL;
+						add "norte" to LL;
 					-- south:
-						add "au sud" to LL;
+						add "sur" to LL;
 					-- east:
-						add "à l'est" to LL;
+						add "est" to LL;
 	let N be the number of entries in LL;
 	repeat with X running from 1 to N:
 		if (N is greater than 1 and X is N):
-			say " et ";
+			say " y ";
 		say entry X of LL;
 		if (N is greater than 2 and X is less than (N - 1)):
 			say ", ".
 
-Chapter 5 - Pinch hitting for French Module
+Chapter 5 - Pinch hitting for Spanish Module
 
-[As far as I can tell, the most recent versions of French-language modules for Inform are not 
-compatible with Inform 7 v 6M62, which I needed for Vorple v3. These bits of code work in a
-very narrow context, but because this game has a limited number of commands and objects, 
-it works well enough for this specific game.]
+[Adapted from "pinch hitting for the French Module"]
 
-Understand "nord" as north.
-Understand "est" as east.
-Understand "ouest" as west.
-Understand "sud" as south.
+Understand "norte" as north.
+Understand "este" as east.
+Understand "oeste" as west.
+Understand "sur" as south.
 
-The indefinite article of doors is usually "une".
+The indefinite article of doors is usually "una".
 
 Rule for listing nondescript items:
 	let L be a list of things;
-	say "Vous pouvez voir ";
+	say "Puedes ver ";
 	repeat with item running through things in the location:
 		if the item is a person or the item is a door:
 			next;
 		add item to L;
 	repeat with N running from 1 to the number of entries in L:
 		if N is greater than 1 and N is the number of entries in L:
-			say " et ";
+			say " y ";
 		let E be entry N of L;
 		say "[an E]";
 		if E is open and E contains exactly one thing:
-			say " (contenant [a random thing in E])";
+			say " (conteniendo [a random thing in E])";
 		if the number of entries in L is greater than 2 and N is less than (the number of entries in L minus 1):
 			say ", ";
 	say "."
 	
 Rule for implicitly taking something (called the target):
 	try silently taking the target;
-	say "(prenant d'abord [definiteArticle of target] [target])[command clarification break]".
+	say "(primero tomas [definiteArticle of target] [target])[command clarification break]".
 	
-To say definiteArticle of (item - a thing):
-	say "l";
-	if the indefinite article of the item is "une":
-		say "a";
-	otherwise:
-		say "e";
-		if the indefinite article of the item is "des":
-			say "s".
+Table of Articles
+indef	def
+"un"	"el"
+"una"	"la"
+"unos"	"los"
+"unas"	"las"	
 
-The can't go that way rule response (A) is "Vous ne pouvez pas aller par là."
+To say definiteArticle of (item - a thing):
+	say the def corresponding to the indef of the indefinite article of the item in the table of articles.
+
+The can't go that way rule response (A) is "No puedes ir por ahí."
 
 Rule for printing the banner text: 
 	place an inline element called "titre" reading "[story title]";
 	say line break;
-	say "[story headline] par [story author][line break]";
+	say "por [story author][line break]";
 	say "Release [release number] / Serial number 180106 / Inform 7 build 6M62 (I6/v6.33 lib 6/12N)[line break]".
 
 Chapter 6 - Suppress Mention of Doors
@@ -182,7 +180,7 @@ For printing a locale paragraph about a door (called the item)
 Chapter 7 - Button Setup
 
 Palette is a list of text that varies. 
-Palette is {"noir","brun","rouge","orange","jaune","vert","bleu","violet","gris","blanc"}.
+Palette is {"negro","marron","rojo","anaranjado","amarillo","verde","azul","violeta","gris","blanco"}.
 	
 Chapter 8 - Start of Play
 
@@ -338,7 +336,7 @@ To say openNord:
 		say "Le mur au nord s'ouvre, révélant la pièce voisine".
 
 	
-The cage is an openable closed container in the Laboratoire Zoologique. The indefinite article of cage is "une". The printed name of the cage is "cage [if the cage is open]ouverte[otherwise](fermée)[end if]".
+The cage is an openable closed container in the Laboratoire Zoologique. The indefinite article of cage is "una". The printed name of the cage is "cage [if the cage is open]ouverte[otherwise](fermée)[end if]".
 
 The chien is an edible thing. It is in the cage. The printed name of the chien is "[if the consciousness of the player is 1]loup[otherwise]chien[end if]". The chien can be dead. The chien is not dead. The indefinite article of chien is "un".
 
@@ -535,7 +533,7 @@ After opening the frigo:
 	say "Vous ouvrez le frigo et une boîte en plastique tombe au sol."
 	
 
-The boîte en plastique is a closed openable container in the frigo. The boîte en plastique is closed. The indefinite article of the boîte en plastique is "une".
+The boîte en plastique is a closed openable container in the frigo. The boîte en plastique is closed. The indefinite article of the boîte en plastique is "una".
 
 The morceau de cerveau is a edible thing in the boîte en plastique. The indefinite article of the morceau de cerveau is "un".
 
@@ -687,9 +685,7 @@ Sas is a room. The description of Sas is "[descSas]." The printed name of the sa
 
 The sasDoor is a locked door. It is north of Escalier 2 and south of Sas. The printed name of the sasDoor is "porte blindée du sas".
 
-The scientifique is an edible thing in the sas. The scientifique has a truth state called introducedFlag. The introducedFlag of scientifique is false. The scientifique has a number called conversations. The conversations of the scientifique is 0.
-
-The indefinite article of the scientifique is "[if the introducedFlag of scientifique is true]le[otherwise]une[end if]". 
+The scientifique is an edible thing in the sas. The scientifique has a number called conversations. The conversations of the scientifique is 0.  The indefinite article of the scientifique is "una". 
 
 To say descSas:
 	if the consciousness of the player is:
@@ -715,7 +711,7 @@ Chapter 10 - Verbs
 
 Section 1 - simpleUnlocking
 
-simpleUnlocking is an action applying to nothing. Understand "déverrouiller" as simpleUnlocking.
+simpleUnlocking is an action applying to nothing. Understand "ingrese el código" as simpleUnlocking.
 
 Carry out simpleUnlocking:
 	repeat with way running through directions:
@@ -743,7 +739,7 @@ Section 2- simpleOpening
 
 Definition: A door is simpleOpenable if it is closed and it is not locked and it is not buttoned.
 	
-simpleOpening is an action applying to nothing. Understand "ouvrir" as simpleOpening.
+simpleOpening is an action applying to nothing. Understand "abre" as simpleOpening.
 
 Carry out simpleOpening:
 	repeat with the way running through directions:
@@ -768,7 +764,7 @@ After opening something (called the item):
 
 Section 3 - simpleEating
 
-simpleEating is an action applying to nothing. Understand "manger" as simpleEating.
+simpleEating is an action applying to nothing. Understand "come" as simpleEating.
 
 Carry out simpleEating:
 	repeat with the item running through visible edible things:
@@ -781,7 +777,7 @@ Carry out simpleEating:
 	
 Section 4- simplePushing
 
-simplePushing is an action applying to nothing. Understand "pousser" as simplePushing.
+simplePushing is an action applying to nothing. Understand "empuja" as simplePushing.
 
 Carry out simplePushing:
 	repeat with the item running through visible buttoned things:
@@ -791,7 +787,7 @@ Carry out simplePushing:
 	
 Section 5- simpleTalking
 
-simpleTalking is an action applying to nothing. Understand "parler" as simpleTalking.
+simpleTalking is an action applying to nothing. Understand "habla" as simpleTalking.
 
 Check simpleTalking:
 	if the player is not in the sas:
@@ -840,7 +836,7 @@ Carry out simpleTalking:
 									
 Section 6 - simpleRepairing
 
-simpleRepairing is an action applying to nothing. Understand "réparer" as simpleRepairing.
+simpleRepairing is an action applying to nothing. Understand "repara" as simpleRepairing.
 
 Carry out simpleRepairing:
 	repeat with the item running through visible broken things:
@@ -862,7 +858,7 @@ To increment the consciousness of the player:
 
 Chapter 12 - Known Commands
 
-The list of text called actionList is always {"est", "ouest","manger","ouvrir","nord","sud","pousser","d\u00E9verrouiller","parler","r\u00E9parer"}.
+The list of text called actionList is always {"este", "oeste","come","abre","norte","sur","empuja","ingrese el c\u00f3digo ","habla","repara"}.
 
 The commandList is a list of numbers that varies. The commandList is {}.
 
@@ -872,8 +868,6 @@ To increment the knownCommands of the player:
 	place an inline element called "hidden" reading "Une novelle commande est apparue: ";
 	place a link to the command "[entry knownCommands of the player of actionList]" called "boutons box[knownCommands of the player] [entry knownCommands of the player of palette]" reading "[entry knownCommands of the player of palette]";
 	place an inline element called "hidden" reading ". ".
-	
-Understand "est/ouest/manger/ouvrir/nord/sud/pousser/déverrouiller/parler/réparer" as "[okayCommand]".
 
 [To prevent players bypassing the CSS to enter arbitrary commands]
 After reading a command:
@@ -881,7 +875,8 @@ After reading a command:
 		say "Le jeu est terminé.  Pour rejouer, rechargez le jeu dans votre navigateur.";
 		reject the player's command;
 	otherwise:
-		if the player's command does not match "[okayCommand]":
+		let C be "[the player's command]";
+		if C is not listed in actionList and C is not "ingrese el código":
 			say "Sélectionnez une commande parmi les liens ci-dessus.";
 			reject the player's command.
 				
@@ -933,7 +928,7 @@ After eating the chien:
 After eating the morceau de cerveau:
 	say "[line break]En mâchant la tranche de cerveau, vous sentez un saveur désagréable, mais ça s'estompe presque immédiatement.[paragraph break]Pendant quelques moments rien ne se passe et vous vous demandez si vous pouvez maintenant manger n'importe quoi en toute impunité.[paragraph break]Soudain, le monde passe de plutôt monochrome à la couleur vive. Une vague électrique parcourt votre esprit et vous vous effondrez, désorienté. Lorsque vous vous mettez debout, des nouvelles idées se mêlent à vos pensées et vous voyez tout sous un nouveau jour.";
 	now the potty is plural-named;
-	now indefinite article of the potty is "des";
+	now indefinite article of the potty is "los";
 	increment the consciousness of the player;
 	now the BlockChatterFlag is true;
 	say "[italic type]«[unicode 160] Il faut patrouiller[unicode 160]! ordonne une nouvelle voix.[line break]-- Patrouiller[unicode 160]? Qu'est que ça veut dire[unicode 160]? demande la souris.[line break]-- Cela signifie marcher partout, pour sécuriser l'installation, répond la voix.[line break]-- J'aime bien faire des promenades[unicode 160]! dit Lucky tout excité.[no line break][unicode 160]»[roman type][line break]";
@@ -1100,11 +1095,11 @@ Chapter 15 - The Void
 
 The void is a room.
 
-The petite créature grise is an edible thing. It is in the void. The indefinite article of the petite créature grise is "une".
+The petite créature grise is an edible thing. It is in the void. The indefinite article of the petite créature grise is "una".
 
 The dépouille sanglante du Docteur Rambaud is a thing in the void. The indefinite article of dépouille sanglante du Docteur Rambaud is "la".
 
-The interphone is a buttoned thing in the void. The interphone can be live. The interphone is not live. The indefinite article of the interphone is "une".
+The interphone is a buttoned thing in the void. The interphone can be live. The interphone is not live. The indefinite article of the interphone is "una".
 
 Instead of pushing the interphone:[only present at consciousness 4]
 	if the interphone is not live:
@@ -1115,7 +1110,7 @@ Instead of pushing the interphone:[only present at consciousness 4]
 
 The panneau électrique is an openable closed container in the void. The printed name of the panneau électrique is "panneau électrique[if the panneau électrique is closed] (fermé)[end if]".
 
-The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The indefinite article of disjoncteurs is "des". The printed name of the disjoncteurs is "disjoncteurs[if the disjoncteurs are broken] sautés[end if]". The indefinite article of the panneau électrique is "un".
+The disjoncteurs are in the panneau électrique. The disjoncteurs are plural-named. The disjoncteurs are broken. The indefinite article of disjoncteurs is "los". The printed name of the disjoncteurs is "disjoncteurs[if the disjoncteurs are broken] sautés[end if]". The indefinite article of the panneau électrique is "un".
 
 Instead of touching the disjoncteurs:
 	say "Vous remettez les disjoncteurs";
@@ -1125,7 +1120,7 @@ Instead of touching the disjoncteurs:
 		now the disjoncteurs are broken;
 	say "."
 
-The unité de synthèse microfluidique is an openable closed container in the void. The indefinite article of the unité de synthèse microfluidique is "une". The printed name of the unité de synthèse microfluidique is "unité de synthèse microfluidique[if the unité de synthèse microfluidique is closed] (fermée)[end if]".
+The unité de synthèse microfluidique is an openable closed container in the void. The indefinite article of the unité de synthèse microfluidique is "una". The printed name of the unité de synthèse microfluidique is "unité de synthèse microfluidique[if the unité de synthèse microfluidique is closed] (fermée)[end if]".
 
 The servomoteur is in the unité de synthèse microfluidique. The servomoteur is broken. The printed name of the servomoteur is "[pnServo]". The indefinite article of servomoteur is "un".
 
